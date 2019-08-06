@@ -1,0 +1,204 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie3-2nav3-0">
+		<meta http-equiv="Content-Type" content="text/html; charset=win-1251" />
+		<title>КОМФОРТНЫЙ ДОМ</title>
+		<script language="javascript">
+		// are we in netscape (mozilla)?
+		var ns = (navigator.appName == 'Netscape');
+
+		// function that shows our custom "about" box
+
+        function imerge1() {
+		window.open('http://kdserver/imerge1/','imerge1','screenY=-5,screenX=-53,innerWidth=800,innerHeight=600');
+		}
+      function imerge2() {
+		window.open('http://kdserver/imerge2/','imerge2','screenY=-5,screenX=-53,innerWidth=800,innerHeight=600');
+		}
+
+		function showAboutBox(e)
+		{
+			// if the source of the right click was from the Flash 
+			// movie, we add an about MM note
+			// note the "id" tag in the flash object below
+			if (ns) 
+			{
+				o = e.target.id; // Mozilla
+			} else 
+			{
+				o = event.srcElement.id; // IE
+			}
+			
+			if (o == "engine") 
+			{
+				// we are over the Flash movie
+				popup_msg = 'Система домашней автоматизации "КОМФОРТНЫЙ ДОМ"\n ©ООО "Специальные Решения и Системы", 2003 - 2006 гг. \n www.k-d.ru';
+				alert(popup_msg);
+			}			
+		}
+
+		function rightClick(e)
+		{
+			// IE only function
+			if (event.button == 2 || event.button == 3) 
+			{
+				showAboutBox();
+			}
+		}
+
+		function init() 
+		{	
+			if (ns)
+			{
+				// Mozilla event capturing code
+				document.captureEvents(Event.MOUSEDOWN);
+				el = document.getElementById("engine");
+				el.addEventListener("mousedown", stopEvent, true);
+			} 
+			else 
+			{
+				// IE handler
+				document.onmousedown = rightClick;
+			}
+		}
+
+		function stopEvent(e) 
+		{
+			if (e.which == 3) 
+			{
+				// we pressed the right button
+				e.stopPropagation(); // ;the magic!!!
+				showAboutBox(e);
+			}
+		}
+
+		</script>
+	</head>
+	<body scroll=no leftmargin="0" topmargin="0" margin-left="0" margin-top="0" onResize="javascript: flashWindowReSize()" onLoad="javascript: flashWindowLoad()" oncontextmenu="javascript:return false;">
+		<table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td valign="middle" align="center">
+						<table cellpadding="0" cellspacing="0" border="0" id="UD1Flash">
+						<tr>
+							<td>
+							<script language="JavaScript">
+								var sDefaultUser = 'Guest';
+								var iRefreshTimeout = 1500;
+								var sClientTitle = '<КОМФОРТНЫЙ ДОМ>';
+								var sWSDLURL = "https://"+location.hostname+"/IDService/IDService.asmx?wsdl";
+								var sGetNodePicURL = "https://"+location.hostname+"/IDService/IDService.asmx/GetNodePic";
+								var sReportURL = "https://"+location.hostname+"/idReport";
+
+						document.write ("<object id='engine'"+ 
+										"classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'"+ 
+										"codebase='https://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0' "+ 
+										"width='800' height='600' align='middle' VIEWASTEXT>"+
+									"<param name='allowScriptAccess' value='always' />"+ 
+									"<param name='FlashVars' value='WSDLURL="+sWSDLURL+
+																	"&GetNodePicURL="+sGetNodePicURL+
+																	"&RefreshTimeout="+iRefreshTimeout+
+																	"&DefaultUser="+sDefaultUser+
+																	"&ReportURL="+sReportURL+
+																	"&ClientTitle="+sClientTitle+"'>"+
+									"<param name='menu' value='false'/>"+ 
+									"<param name='movie' value='index2.swf'/>"+ 
+									"<param name='quality' value='high'/>"+ 
+									"<param name='bgcolor' value='"+document.bgColor+ "'/>"+ 
+									"<param name='wmode' value='opaque'/>"+ 
+									"<embed	id='engine' "+
+											"name='index2.swf' "+
+											"type='application/x-shockwave-flash' "+
+											"src='index2.swf' "+
+											"quality='high' "+
+											"bgcolor='"+document.bgColor+ "' "+ 
+											"menu='0' "+
+											"wmode='opaque' "+
+											"swliveconnect='1' "+
+											"width='800' "+
+											"height='600' "+
+											"pluginspage='http://www.macromedia.com/go/getflashplayer' />"+
+								"</object>");
+							</script>
+
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<script language="JavaScript">
+		<!--
+			//var flashTop  = document.all.UD1Flash.offsetTop;
+			//var flashLeft = document.all.UD1Flash.offsetLeft;
+			function flashWindowReSize() 
+			{
+				flashTop  = document.all.UD1Flash.offsetTop;
+				flashLeft = document.all.UD1Flash.offsetLeft;
+			}
+			function flashWindowLoad()
+			{
+				init();
+				flashWindowReSize();
+			}
+			// show/hide 1 camera
+			function showOneCAM(id, ip)
+			{
+				ShowControl(0, 42+flashLeft, 347+flashTop, 400, 300);
+				ShowCamera(0, id, ip, "900");
+			}
+			function hideOneCAM(id)
+			{
+				HideControl(0);
+				Stop(0);
+			}
+			// show/hide 4 cameras
+			function showMacroCAMs(id1, ip1, id2, ip2, id3, ip3, id4, ip4)
+			{
+				ShowControl(0, 24 + flashLeft, 223 + flashTop, 323, 242);
+				ShowCamera(0, id1, ip1, "900");
+				ShowControl(1, 350 + flashLeft, 223 + flashTop, 323, 242);
+				ShowCamera(1, id2, ip2, "900");
+				ShowControl(2, 24 + flashLeft, 468 + flashTop, 323, 242);
+				ShowCamera(2, id3, ip3, "900");
+				ShowControl(3, 350 + flashLeft, 468 + flashTop, 323, 242);
+				ShowCamera(3, id4, ip4, "900");
+			}
+			function hideMacroCAMs()
+			{
+				for (var i = 0; i < 4; i++) 
+				{
+					HideControl(i);
+					Stop(i)
+				}
+			}
+			function CAMSelected(labelN)
+			{
+				var flashPath = "_root.Engine.MainWindow.Plan.Map.MapPanels.PanelMACRO14.panel.switcher";
+				var labelName = "cam" + labelN;
+				window.document.engine.TGotoLabel(flashPath, labelName);
+			}
+		//-->
+		</script>
+		<SCRIPT LANGUAGE="javascript" FOR="Dcamera0" EVENT="MouseDown">
+		<!--
+			CAMSelected(0);
+		//-->
+		</SCRIPT>
+		<SCRIPT LANGUAGE="javascript" FOR="Dcamera1" EVENT="MouseDown">
+		<!--
+			CAMSelected(1);
+		//-->
+		</SCRIPT>
+		<SCRIPT LANGUAGE="javascript" FOR="Dcamera2" EVENT="MouseDown">
+		<!--
+			CAMSelected(2);
+		//-->
+		</SCRIPT>
+		<SCRIPT LANGUAGE="javascript" FOR="Dcamera3" EVENT="MouseDown">
+		<!--
+			CAMSelected(3);
+		//-->
+		</SCRIPT>
+	</body>
+</html>
